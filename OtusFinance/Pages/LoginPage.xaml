@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OtusFinance.Pages.LoginPage"
+             Title="LoginPage">
+
+
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+
+        <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                
+                <ColumnDefinition Width="*"/>
+                
+            </Grid.ColumnDefinitions>
+
+            
+            <VerticalStackLayout Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                
+                <Image Source="logo.png" HeightRequest="400"/>
+                
+                <Label Text="Welcome back!"
+                   FontSize="Subtitle"
+                   VerticalOptions="End" Margin="20"/>
+                
+            </VerticalStackLayout>
+
+            
+        <Rectangle Fill="Black" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" VerticalOptions="FillAndExpand"></Rectangle>
+        <Grid Grid.Column="1"  VerticalOptions="CenterAndExpand" HorizontalOptions="Center" >
+                
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    
+                    <RowDefinition Height="Auto"/>
+                    
+                    <RowDefinition Height="Auto"/>
+                    
+                    <RowDefinition Height="Auto"/>
+                    
+                    <RowDefinition Height="Auto"/>
+                   
+                </Grid.RowDefinitions>
+
+                
+            <Label Text="Login" FontSize="Large" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" TextColor="White" HorizontalOptions="Center"/>
+
+            <Frame Grid.Column="1" Grid.Row="1" BorderColor="White" CornerRadius="0" Padding="0" Margin="20" BackgroundColor="Transparent" WidthRequest="500" HeightRequest="60" >
+                <Entry Grid.Column="1" Grid.Row="1" Placeholder="Username" Margin="10" TextColor="White" />
+            </Frame>
+
+            
+            <Frame Grid.Column="1" Grid.Row="2" BorderColor="White" CornerRadius="0" Padding="0" Margin="20" BackgroundColor="Transparent" WidthRequest="500" HeightRequest="60" >
+                <Entry Grid.Column="1" Grid.Row="2" Placeholder="Password" IsPassword="True" TextColor="White"/>
+            </Frame>
+
+            
+            <Label Grid.Column="1" Grid.Row="3" Text="Forgot password?" HorizontalOptions="End" TextColor="White"/>
+
+                
+            <Button Grid.Column="1" Grid.Row="4"  Text="Login" BackgroundColor="#4CAF50" TextColor="White" WidthRequest="200" HeightRequest="40"/>
+            </Grid>
+
+        </Grid>
+    </ContentPage>
+
