@@ -6,7 +6,7 @@
         {
             InitializeComponent();
 
-            MainPage = new Pages.LoginPage();
+            MainPage = new Pages.AccountSettings();
         }
     }
 }

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OtusFinance.Pages.AccountSettings"
+             Title="AccountSettings">
+
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+      
+        <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="#1F1F1F" Padding="15">
+            <Image Source="logo.png" HeightRequest="50" Margin="0,0,0,20"/>
+            <Button Text="Dashboard" TextColor="White"  FontSize="Small"  BackgroundColor="Transparent"
+                    Clicked="OnDashboardClicked" />
+            <Button Text="Reports" TextColor="White" FontSize="Small" BackgroundColor="Transparent"
+                    Clicked="OnReportsClicked" />
+            <Button Text="Settings" TextColor="#4CAF50"  FontSize="Small" BackgroundColor="Transparent"
+                    Clicked="OnSettingsClicked" />
+            <Button Text="Overview" TextColor="White"  FontSize="Small" BackgroundColor="Transparent"
+                    Clicked="OnOverviewClicked" />
+        </StackLayout>
+
+      
+        <ScrollView Grid.Column="1" Padding="30" HorizontalOptions="FillAndExpand" BackgroundColor="#F5F5F5">
+            <VerticalStackLayout Spacing="20">
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
+                    
+                    <Entry Placeholder="{Binding Username}" FontSize="16" TextColor="Black"/>
+
+                    <Image Source="user_profile.png" HeightRequest="30"/>
+                </HorizontalStackLayout>
+
+                <Label Text="Account Settings" FontAttributes="Bold" FontSize="30" TextColor="Black"/>
+
+               
+                <Frame BackgroundColor="White" Padding="20" CornerRadius="5">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="User Account" FontAttributes="Bold" FontSize="22" TextColor="Black"/>
+                        <Entry Text="Username" FontSize="16" TextColor="Black"/>
+                        <Entry Text="********" FontSize="16" IsPassword="True" TextColor="Black"/>
+                        <Button Text="Log Out" BackgroundColor="#4CAF50" TextColor="White"  WidthRequest="150" HorizontalOptions="Start"/>
+
+                        <Entry Placeholder="New Username..." TextColor="Black"/>
+                        <Entry Placeholder="New Password..." IsPassword="True" TextColor="Black"/>
+                        <Entry Placeholder="Re-enter password..." IsPassword="True" TextColor="Black"/>
+                        <Button Text="Save" BackgroundColor="#4CAF50" TextColor="White" WidthRequest="150" HorizontalOptions="Start"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+               
+                <Frame BackgroundColor="White" Padding="20" CornerRadius="5">
+                    <VerticalStackLayout Spacing="15">
+                        <Label Text="Advanced Settings" FontAttributes="Bold" FontSize="22" TextColor="Black"/>
+                       
+                        <Label Text="Color Themes" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
+                        <VerticalStackLayout>
+                            <RadioButton GroupName="Themes" Content="Light" FontSize="16" TextColor="Black" Value="Light"/>
+                            <RadioButton GroupName="Themes" Content="Dark" FontSize="16" TextColor="Black" Value="Dark" IsChecked="True"/>
+                        </VerticalStackLayout>
+
+
+                    </VerticalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
