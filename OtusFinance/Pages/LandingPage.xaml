@@ -10,7 +10,7 @@
     </Grid.ColumnDefinitions>
 
     <VerticalStackLayout Grid.Column="0" HorizontalOptions="CenterAndExpand"  VerticalOptions="CenterAndExpand">
-        <Image Source="logo.png" HeightRequest="300"/>
+        <Image Source="logo.png" HeightRequest="400"/>
         <Label Text="Welcome to Otus Finance"
                    FontSize="Subtitle"
                    VerticalOptions="End" Margin="20"/>
@@ -27,27 +27,8 @@
 
         <Label Text="Get Started" FontSize="Large" FontAttributes="Bold" Grid.Row="0" TextColor="White" HorizontalOptions="Center"/>
 
-        <Button Grid.Row="1" 
-                Text="Login"
-                BackgroundColor="#4CAF50" 
-                TextColor="White"  
-                FontSize="Micro" 
-                FontAttributes="Bold" 
-                WidthRequest="200" 
-                HeightRequest="20" 
-                Margin="5" 
-                HorizontalOptions="Center"/>
-        
-        <Button Grid.Row="2" 
-                Text="Signup"      
-                BackgroundColor="#4CAF50" 
-                TextColor="White" 
-                FontSize="Micro" 
-                FontAttributes="Bold" 
-                WidthRequest="200" 
-                HeightRequest="20" 
-                Margin="5" 
-                HorizontalOptions="Center"/>
+        <Button Grid.Row="1" Text="Login" BackgroundColor="#4CAF50" TextColor="White"  FontSize="Micro" FontAttributes="Bold" WidthRequest="200" HeightRequest="20" Margin="5" HorizontalOptions="Center"/>
+            <Button Grid.Row="2" Text="Signup" BackgroundColor="#4CAF50" TextColor="White" FontSize="Micro" FontAttributes="Bold" WidthRequest="200" HeightRequest="20" Margin="5" HorizontalOptions="Center"/>
     </Grid>
 
     </Grid>

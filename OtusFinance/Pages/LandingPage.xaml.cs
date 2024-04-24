@@ -6,5 +6,4 @@ public partial class LandingPage : ContentPage
 	{
 		InitializeComponent();
 	}
-	
 }
