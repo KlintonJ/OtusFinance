@@ -5,8 +5,8 @@
         public App()
         {
             InitializeComponent();
-
-            MainPage = new Pages.AccountSettings();
+            
+            MainPage = new Pages.AccountReport();
         }
     }
 }

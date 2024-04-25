@@ -67,6 +67,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Pages\AccountReport.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\AccountSettings.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
