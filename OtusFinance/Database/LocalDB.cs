@@ -27,6 +27,22 @@ namespace OtusFinance
             }
             return false;
         }
+        public async Task<bool> EmailExistsAsync(string email)
+        {
+            var existingUser = await _connection.Table<User>().Where(u => u.Email == email).FirstOrDefaultAsync();
+            return existingUser != null;
+        }
+
+        public async Task<int> AddUserAsync(User user)
+        {
+            // Check if the email already exists
+            if (await EmailExistsAsync(user.Email))
+            {
+                throw new InvalidOperationException("A user with this email already exists.");
+            }
+
+            return await _connection.InsertAsync(user);
+        }
 
     }
 
