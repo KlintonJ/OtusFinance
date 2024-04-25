@@ -5,8 +5,10 @@
         public App()
         {
             InitializeComponent();
-            
-            MainPage = new Pages.LoginPage();
+
+
+            MainPage = new AppShell();
+
         }
     }
 }
