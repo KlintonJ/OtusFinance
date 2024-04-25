@@ -64,7 +64,7 @@
 
             <Button x:Name="loginButton" Grid.Column="1" Grid.Row="4"  Text="Login" BackgroundColor="#4CAF50" TextColor="White" FontSize="Micro" WidthRequest="200" Margin="10" HeightRequest="40" Clicked="OnLoginClicked"/>
 
-            <Button Grid.Column="1" Grid.Row="5"  Text="Home" BackgroundColor="#4CAF50" TextColor="White" FontSize="Micro" WidthRequest="200" Margin="10" HeightRequest="40"/>
+            <Button Grid.Column="1" Grid.Row="5"  Text="Home" BackgroundColor="#4CAF50" TextColor="White" FontSize="Micro" WidthRequest="200" Margin="10" HeightRequest="40" Clicked="OnHomeClicked"/>
             
         </Grid>
 

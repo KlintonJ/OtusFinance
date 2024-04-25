@@ -50,7 +50,7 @@
                     WidthRequest="200" HeightRequest="40" Margin="10" HorizontalOptions="Center" Clicked="OnSignupClick"/>
             
             <Button Grid.Row="5" Text="Home" BackgroundColor="#4CAF50" TextColor="White" 
-        WidthRequest="200" HeightRequest="40" Margin="10" HorizontalOptions="Center"/>
+        WidthRequest="200" HeightRequest="40" Margin="10" HorizontalOptions="Center" Clicked="OnHomeClicked"/>
             
         </Grid>
 

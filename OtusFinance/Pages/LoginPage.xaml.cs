@@ -40,5 +40,10 @@ namespace OtusFinance.Pages
                 await DisplayAlert("Error", "Invalid username or password.", "OK");
             }
         }
+
+        private async void OnHomeClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//MainPage");
+        }
     }
 }
