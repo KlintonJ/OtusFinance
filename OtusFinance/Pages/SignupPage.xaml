@@ -26,6 +26,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Label Text="Sign Up" FontSize="Large" FontAttributes="Bold" Grid.Row="0" TextColor="White" HorizontalOptions="Center"/>
@@ -46,7 +47,11 @@
             </Frame>
 
             <Button Grid.Row="4" Text="Sign Up" BackgroundColor="#4CAF50" TextColor="White" 
-                    WidthRequest="200" HeightRequest="40" Margin="20" HorizontalOptions="Center"/>
+                    WidthRequest="200" HeightRequest="40" Margin="10" HorizontalOptions="Center"/>
+            
+            <Button Grid.Row="5" Text="Home" BackgroundColor="#4CAF50" TextColor="White" 
+        WidthRequest="200" HeightRequest="40" Margin="10" HorizontalOptions="Center"/>
+            
         </Grid>
 
     </Grid>

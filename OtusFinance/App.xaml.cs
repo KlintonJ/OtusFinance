@@ -6,7 +6,7 @@
         {
             InitializeComponent();
             
-            MainPage = new Pages.AccountReport();
+            MainPage = new Pages.SignupPage();
         }
     }
 }
