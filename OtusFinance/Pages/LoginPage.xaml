@@ -48,19 +48,19 @@
             <Label Text="Login" FontSize="Large" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" TextColor="White" HorizontalOptions="Center"/>
 
             <Frame Grid.Column="1" Grid.Row="1" BorderColor="White" CornerRadius="0" Padding="0" Margin="20" BackgroundColor="Transparent" WidthRequest="500" HeightRequest="60" >
-                <Entry Grid.Column="1" Grid.Row="1" Placeholder="Username" Margin="10" TextColor="White" />
+                <Entry x:Name="usernameEntry" Grid.Column="1" Grid.Row="1" Placeholder="Username" Margin="10" TextColor="White" />
             </Frame>
 
             
             <Frame Grid.Column="1" Grid.Row="2" BorderColor="White" CornerRadius="0" Padding="0" Margin="20" BackgroundColor="Transparent" WidthRequest="500" HeightRequest="60" >
-                <Entry Grid.Column="1" Grid.Row="2" Placeholder="Password" IsPassword="True" TextColor="White"/>
+                <Entry x:Name="passwordEntry" Grid.Column="1" Grid.Row="2" Placeholder="Password" IsPassword="True" TextColor="White"/>
             </Frame>
 
             
             <Label Grid.Column="1" Grid.Row="3" Text="Forgot password?" HorizontalOptions="End" TextColor="White"/>
 
-                
-            <Button Grid.Column="1" Grid.Row="4"  Text="Login" BackgroundColor="#4CAF50" TextColor="White" WidthRequest="200" HeightRequest="40"/>
+
+            <Button x:Name="loginButton" Grid.Column="1" Grid.Row="4"  Text="Login" BackgroundColor="#4CAF50" TextColor="White" WidthRequest="200" HeightRequest="40" Clicked="OnLoginClicked"/>
             </Grid>
 
         </Grid>

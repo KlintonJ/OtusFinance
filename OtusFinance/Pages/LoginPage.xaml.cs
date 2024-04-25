@@ -1,9 +1,44 @@
-namespace OtusFinance.Pages;
+using System;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
-public partial class LoginPage : ContentPage
+
+namespace OtusFinance.Pages
 {
-	public LoginPage()
-	{
-		InitializeComponent();
-	}
+    public partial class LoginPage : ContentPage
+    {
+        private readonly LocalDB _database;
+
+        public LoginPage()
+        {
+            InitializeComponent();
+            _database = new LocalDB();
+        }
+
+        private async void OnLoginClicked(object sender, EventArgs e)
+        {
+            string username = usernameEntry.Text;
+            string password = passwordEntry.Text;
+
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+            {
+                await DisplayAlert("Error", "Please enter a username and password.", "OK");
+                return;
+            }
+
+            bool isPasswordCorrect = await _database.CheckPassword(username, password);
+
+            if (isPasswordCorrect)
+            {
+                Debug.WriteLine("Login successful.");
+                await DisplayAlert("Welcome", "Login successful!", "OK");
+                await Shell.Current.GoToAsync("//AccountSettings");
+            }
+            else
+            {
+                Debug.WriteLine("Login failed.");
+                await DisplayAlert("Error", "Invalid username or password.", "OK");
+            }
+        }
+    }
 }
