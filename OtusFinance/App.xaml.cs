@@ -6,7 +6,7 @@
         {
             InitializeComponent();
             
-            MainPage = new Pages.SignupPage();
+            MainPage = new Pages.LoginPage();
         }
     }
 }
