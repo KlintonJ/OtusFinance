@@ -11,9 +11,10 @@ public partial class AccountSettings : ContentPage
         // Handle Dashboard clicked
     }
 
-    private void OnReportsClicked(object sender, EventArgs e)
+    async void OnReportsClicked(object sender, EventArgs e)
     {
-        // Handle Reports clicked
+       await Shell.Current.GoToAsync("//AccountReport");
+       
     }
 
     private void OnSettingsClicked(object sender, EventArgs e)
