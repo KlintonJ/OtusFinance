@@ -3,23 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:OtusFinance"
              x:Class="OtusFinance.Pages.AccountReport"
-             Title="AccountReport">    
+             Title="AccountReport">
 
     <Grid>
-
-        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            
             <RowDefinition Height="*"/>
-            
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
-            
             <ColumnDefinition Width="*"/>
-            
         </Grid.ColumnDefinitions>
 
         <StackLayout Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" BackgroundColor="#232323">
@@ -30,7 +24,6 @@
             <Button Text="Overview" TextColor="White" FontSize="Subtitle" BackgroundColor="Transparent"/>
         </StackLayout>
 
-        
         <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal" BackgroundColor="#1E1E1E" Padding="10">
             <Label Text="Account Report" HorizontalOptions="StartAndExpand" FontSize="Large" TextColor="White" VerticalOptions="Center"/>
             <Label Text="Hello!" HorizontalOptions="End" FontSize="Subtitle" TextColor="White" VerticalOptions="Center"/>
@@ -39,7 +32,6 @@
 
         <ScrollView Grid.Row="1" Grid.Column="1">
             <StackLayout Padding="20">
-                
                 <Label Text="Transaction History" FontSize="Medium" TextColor="Black"/>
                 <ListView ItemsSource="{Binding Transactions}" HeightRequest="200">
                     <ListView.ItemTemplate>
@@ -55,11 +47,8 @@
                                 <Label Grid.Column="2" Text="{Binding Amount, StringFormat='{}{0:C}'}" TextColor="Black" HorizontalOptions="End"/>
                             </Grid>
                         </DataTemplate>
-
                     </ListView.ItemTemplate>
                 </ListView>
-
-
 
                 <!-- Account Log Section -->
                 <Label Text="Log New Expense" FontSize="Micro" TextColor="Black"/>
@@ -72,39 +61,39 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- Amount Entry -->
-                    <Entry x:Name="amountEntry" 
-                        Grid.Column="0"
-           Placeholder="Amount ($)"
-           Keyboard="Numeric"
-           TextColor="Black"
-           BackgroundColor="White"
-           VerticalOptions="Center"
-           HeightRequest="60"
-           Margin="0,5,10,5" />
+                    <Entry x:Name="amountEntry"
+                           Grid.Column="0"
+                           Placeholder="Amount ($)"
+                           Keyboard="Numeric"
+                           TextColor="Black"
+                           BackgroundColor="White"
+                           VerticalOptions="Center"
+                           HeightRequest="60"
+                           Margin="0,5,10,5" />
 
                     <!-- Expense Type Picker -->
                     <Picker x:Name="ExpenseTypePicker"
-            Grid.Column="1"
-            Title="Select Type"
-            TextColor="Black"
-            BackgroundColor="White"
-            VerticalOptions="Center"
-            HeightRequest="60"
-            Margin="10,5" />
+                            Grid.Column="1"
+                            Title="Select Type"
+                            TextColor="Black"
+                            BackgroundColor="White"
+                            VerticalOptions="Center"
+                            HeightRequest="60"
+                            Margin="10,5" />
+
                     <!-- Date Picker -->
                     <DatePicker x:Name="datePicker"
-                        Grid.Column="2"
-                Format="MM/dd/yyyy"
-                TextColor="Black"
-                BackgroundColor="White"
-                VerticalOptions="Center"
-                HeightRequest="60"
-                Margin="10,5,0,5" />
+                                Grid.Column="2"
+                                Format="MM/dd/yyyy"
+                                TextColor="Black"
+                                BackgroundColor="White"
+                                VerticalOptions="Center"
+                                HeightRequest="60"
+                                Margin="10,5,0,5" />
                 </Grid>
-                
+
                 <Button Text="Log Expense" BackgroundColor="#4CAF50" TextColor="White" FontSize="Micro" HorizontalOptions="Center" Margin="10" Clicked="OnLogExpenseClicked"/>
             </StackLayout>
         </ScrollView>
-
     </Grid>
 </ContentPage>
