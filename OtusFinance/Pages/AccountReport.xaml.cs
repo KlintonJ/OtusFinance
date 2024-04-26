@@ -1,5 +1,6 @@
 using System.Collections.ObjectModel;
 using Microsoft.Maui.Controls;
+using OtusFinance;
 
 namespace OtusFinance.Pages;
 

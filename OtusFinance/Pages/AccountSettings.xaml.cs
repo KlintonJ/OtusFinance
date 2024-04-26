@@ -5,7 +5,7 @@ public partial class AccountSettings : ContentPage
 	public AccountSettings()
 	{
 		InitializeComponent();
-	}
+    }
     private void OnDashboardClicked(object sender, EventArgs e)
     {
         // Handle Dashboard clicked

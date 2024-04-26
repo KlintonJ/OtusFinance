@@ -30,6 +30,7 @@ namespace OtusFinance.Pages
 
             if (isPasswordCorrect)
             {
+                UserData.Username = username;
                 Debug.WriteLine("Login successful.");
                 await DisplayAlert("Welcome", "Login successful!", "OK");
                 await Shell.Current.GoToAsync("//AccountSettings");
