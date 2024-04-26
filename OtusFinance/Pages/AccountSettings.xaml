@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:OtusFinance"
              x:Class="OtusFinance.Pages.AccountSettings"
              Title="AccountSettings">
 
@@ -29,8 +30,8 @@
             <VerticalStackLayout Spacing="20">
 
                 <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
-                    
-                    <Entry Placeholder="{Binding Username}" FontSize="16" TextColor="Black"/>
+
+                    <Label Text="{Binding Source={x:Static local:UserData.Username}}" FontSize="16" TextColor="Black"/>
 
                     <Image Source="user_profile.png" HeightRequest="30"/>
                 </HorizontalStackLayout>

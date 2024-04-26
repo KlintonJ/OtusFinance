@@ -42,4 +42,10 @@ public partial class AccountReport : ContentPage
         public string Description { get; set; }
         public string Amount { get; set; }
     }
+
+    async void OnSettingsClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//AccountSettings");
+
+    }
 }

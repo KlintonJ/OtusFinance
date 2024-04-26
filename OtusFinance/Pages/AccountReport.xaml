@@ -26,7 +26,7 @@
             <Image Source="logo.png" HeightRequest="50" Margin="10"/>
             <Button Text="Dashboard" TextColor="White" FontSize="Subtitle" BackgroundColor="Transparent"/>
             <Button Text="Reports" TextColor="#4CAF50" FontSize="Subtitle" BackgroundColor="Transparent"/>
-            <Button Text="Settings" TextColor="White" FontSize="Subtitle" BackgroundColor="Transparent"/>
+            <Button Text="Settings" TextColor="White" FontSize="Subtitle" BackgroundColor="Transparent" Clicked="OnSettingsClicked"/>
             <Button Text="Overview" TextColor="White" FontSize="Subtitle" BackgroundColor="Transparent"/>
         </StackLayout>
 
