@@ -53,18 +53,33 @@
                 </Frame>
 
                
-                <Frame BackgroundColor="White" Padding="20" CornerRadius="5">
-                    <VerticalStackLayout Spacing="15">
-                        <Label Text="Advanced Settings" FontAttributes="Bold" FontSize="22" TextColor="Black"/>
-                       
-                        <Label Text="Color Themes" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
-                        <VerticalStackLayout>
+                <Frame BackgroundColor="White" Padding="20" CornerRadius="5" Grid.Row="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        
+                        <VerticalStackLayout Grid.Column="0" Grid.Row="0" Spacing="15">
+                            <Label Text="Advanced Settings" FontAttributes="Bold" FontSize="22" TextColor="Black"/>
+                            <Label Text="Color Themes" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
                             <RadioButton GroupName="Themes" Content="Light" FontSize="16" TextColor="Black" Value="Light"/>
                             <RadioButton GroupName="Themes" Content="Dark" FontSize="16" TextColor="Black" Value="Dark" IsChecked="True"/>
                         </VerticalStackLayout>
 
-
-                    </VerticalStackLayout>
+                        
+                        <VerticalStackLayout Grid.Column="1" Grid.Row="0" Spacing="15">
+                            <Label Text="Savings Goal" FontAttributes="Bold" FontSize="22" TextColor="Black"/>
+                            <Entry Placeholder="Enter amount in $" Keyboard="Numeric" TextColor="Black"/>
+                            <DatePicker FontSize="16" TextColor="Black"/>
+                            <Button Text="Save Goal" BackgroundColor="#4CAF50" TextColor="White" WidthRequest="150" HorizontalOptions="Start"/>
+                        </VerticalStackLayout>
+                    </Grid>
                 </Frame>
 
             </VerticalStackLayout>
