@@ -44,17 +44,18 @@
                 <ListView ItemsSource="{Binding Transactions}" HeightRequest="200">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="10">
+                            <Grid Padding="10" BackgroundColor="LightGray">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Text="{Binding Date}" TextColor="Black" HorizontalOptions="Start"/>
-                                <Label Grid.Column="1" Text="{Binding Description}" TextColor="Black" HorizontalOptions="Start"/>
-                                <Label Grid.Column="2" Text="{Binding Amount}" TextColor="Black" HorizontalOptions="End"/>
+                                <Label Grid.Column="0" Text="{Binding Date, StringFormat='{0:MM/dd/yyyy}'}" TextColor="Black" HorizontalOptions="Start"/>
+                                <Label Grid.Column="1" Text="{Binding Type}" TextColor="Black" HorizontalOptions="Start"/>
+                                <Label Grid.Column="2" Text="{Binding Amount, StringFormat='{}{0:C}'}" TextColor="Black" HorizontalOptions="End"/>
                             </Grid>
                         </DataTemplate>
+
                     </ListView.ItemTemplate>
                 </ListView>
 
@@ -71,7 +72,8 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- Amount Entry -->
-                    <Entry Grid.Column="0"
+                    <Entry x:Name="amountEntry" 
+                        Grid.Column="0"
            Placeholder="Amount ($)"
            Keyboard="Numeric"
            TextColor="Black"
@@ -90,7 +92,8 @@
             HeightRequest="60"
             Margin="10,5" />
                     <!-- Date Picker -->
-                    <DatePicker Grid.Column="2"
+                    <DatePicker x:Name="datePicker"
+                        Grid.Column="2"
                 Format="MM/dd/yyyy"
                 TextColor="Black"
                 BackgroundColor="White"
@@ -99,7 +102,7 @@
                 Margin="10,5,0,5" />
                 </Grid>
                 
-                <Button Text="Log Expense" BackgroundColor="#4CAF50" TextColor="White" FontSize="Micro" HorizontalOptions="Center" Margin="10"/>
+                <Button Text="Log Expense" BackgroundColor="#4CAF50" TextColor="White" FontSize="Micro" HorizontalOptions="Center" Margin="10" Clicked="OnLogExpenseClicked"/>
             </StackLayout>
         </ScrollView>
 
