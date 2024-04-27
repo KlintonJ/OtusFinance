@@ -1,6 +1,5 @@
 using System.Collections.ObjectModel;
 using Microsoft.Maui.Controls;
-using Microsoft.Extensions.Logging;
 using OtusFinance;
 using System.Diagnostics;
 
@@ -24,7 +23,6 @@ public partial class AccountReport : ContentPage
             "Income",
             "Other Expenses"
         };
-
         this.BindingContext = this;
     }
 
@@ -42,6 +40,36 @@ public partial class AccountReport : ContentPage
         foreach (var transaction in transactionsList)
         {
             Transactions.Add(transaction);
+        }
+        RenderTransactionHistory();
+    }
+
+    private void RenderTransactionHistory()
+    {
+        TransactionHistoryContainer.Children.Clear();
+        foreach (var transaction in Transactions)
+        {
+            var transactionView = new Grid
+            {
+                Padding = 10,
+                BackgroundColor = Colors.LightGray,
+                ColumnDefinitions =
+                {
+                    new ColumnDefinition { Width = GridLength.Star },
+                    new ColumnDefinition { Width = GridLength.Star },
+                    new ColumnDefinition { Width = GridLength.Star }
+                }
+            };
+
+            var dateLabel = new Label { Text = transaction.Date.ToString("MM/dd/yyyy"), TextColor = Colors.Black };
+            var typeLabel = new Label { Text = transaction.Type, TextColor = Colors.Black };
+            var amountLabel = new Label { Text = transaction.Amount.ToString("C"), TextColor = Colors.Black, HorizontalOptions = LayoutOptions.EndAndExpand };
+
+            transactionView.Add(dateLabel, 0, 0);
+            transactionView.Add(typeLabel, 1, 0);
+            transactionView.Add(amountLabel, 2, 0);
+
+            TransactionHistoryContainer.Children.Add(transactionView);
         }
     }
 
@@ -82,7 +110,7 @@ public partial class AccountReport : ContentPage
 
             await _database.AddTransactionAsync(transaction);
 
-            // Reset fields
+            // Reset all
             amountEntry.Text = string.Empty;
             ExpenseTypePicker.SelectedIndex = -1;
             datePicker.Date = DateTime.Today;

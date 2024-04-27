@@ -33,22 +33,7 @@
         <ScrollView Grid.Row="1" Grid.Column="1">
             <StackLayout Padding="20">
                 <Label Text="Transaction History" FontSize="Medium" TextColor="Black"/>
-                <ListView ItemsSource="{Binding Transactions}" HeightRequest="200">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid Padding="10" BackgroundColor="LightGray">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Text="{Binding Date, StringFormat='{0:MM/dd/yyyy}'}" TextColor="Black" HorizontalOptions="Start"/>
-                                <Label Grid.Column="1" Text="{Binding Type}" TextColor="Black" HorizontalOptions="Start"/>
-                                <Label Grid.Column="2" Text="{Binding Amount, StringFormat='{}{0:C}'}" TextColor="Black" HorizontalOptions="End"/>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <VerticalStackLayout x:Name="TransactionHistoryContainer" Spacing="10" />
 
                 <!-- Account Log Section -->
                 <Label Text="Log New Expense" FontSize="Micro" TextColor="Black"/>
