@@ -1,4 +1,6 @@
-﻿namespace OtusFinance
+﻿using OtusFinance.Pages;
+
+namespace OtusFinance
 {
     public partial class App : Application
     {
@@ -7,7 +9,7 @@
             InitializeComponent();
 
 
-            MainPage = new AppShell();
+            MainPage = new OverviewPage();
 
         }
     }

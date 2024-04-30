@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OtusFinance.Pages.OverviewPage"
+             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
+             
+
+             Title="OverviewPage">
+
+
+    <Grid RowSpacing="0" ColumnSpacing="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="#1F1F1F" Padding="15">
+            <Image Source="logo.png" HeightRequest="50" Margin="0,0,0,20"/>
+            <Button Text="Dashboard" TextColor="White"  FontSize="Small"  BackgroundColor="Transparent"
+                 />
+            <Button Text="Reports" TextColor="White" FontSize="Small" BackgroundColor="Transparent"
+                 />
+            <Button Text="Settings" TextColor="White"  FontSize="Small" BackgroundColor="Transparent"
+                 />
+            <Button Text="Overview" TextColor="#4CAF50"  FontSize="Small" BackgroundColor="Transparent"/>
+        </StackLayout>
+
+        <!-- Main Content -->
+        <ScrollView Grid.Column="1">
+            <VerticalStackLayout Margin="20">
+                <!-- Pie Chart -->
+                <micro:ChartView x:Name="PieChartView" HeightRequest="400"/>
+
+                <!-- Spending Categories Legend -->
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Frame BackgroundColor="#BDB6AB" WidthRequest="20" HeightRequest="20"/>
+                    <Label Text=" Food and Drinks   "/>
+                    <Frame BackgroundColor="#8C92AC" WidthRequest="20" HeightRequest="20"/>
+                    <Label Text=" Travel   "/>
+                    <Frame BackgroundColor="#484848" WidthRequest="20" HeightRequest="20"/>
+                    <Label Text=" Income   "/>
+                    <Frame BackgroundColor="#D7A9B4" WidthRequest="20" HeightRequest="20"/>
+                    <Label Text=" Other Expenses"/>
+                </StackLayout>
+
+                <!-- Top Spending Categories -->
+                <Label Text="Top Spending Categories" FontAttributes="Bold"/>
+                <Label x:Name="TopCategory"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
