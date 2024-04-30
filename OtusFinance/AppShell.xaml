@@ -27,5 +27,9 @@
         Title="AccountReport"
         ContentTemplate="{DataTemplate local:AccountReport}"
         Route="AccountReport" />
+    <ShellContent
+        Title="OverviewPage"
+        ContentTemplate="{DataTemplate local:OverviewPage}"
+        Route="OverviewPage" />
 
 </Shell>

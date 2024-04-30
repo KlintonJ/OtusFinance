@@ -9,7 +9,7 @@ namespace OtusFinance
             InitializeComponent();
 
 
-            MainPage = new OverviewPage();
+            MainPage = new AppShell();
 
         }
     }

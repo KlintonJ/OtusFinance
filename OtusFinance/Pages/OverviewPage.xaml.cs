@@ -18,7 +18,7 @@ namespace OtusFinance.Pages
             {
                 new ChartEntry(500) { Label = "Food and Drinks", ValueLabel = "500", Color = SKColor.Parse("#77A1D3") },
                 new ChartEntry(150) { Label = "Travel", ValueLabel = "150", Color = SKColor.Parse("#79D2DE") },
-                new ChartEntry(1200) { Label = "Income", ValueLabel = "1200", Color = SKColor.Parse("#EDE574") },
+                new ChartEntry(1200) { Label = "Housing and Utilities", ValueLabel = "1200", Color = SKColor.Parse("#EDE574") },
                 new ChartEntry(450) { Label = "Other Expenses", ValueLabel = "450", Color = SKColor.Parse("#E38690") }
             };
 
@@ -36,6 +36,17 @@ namespace OtusFinance.Pages
         {
             var topCategory = entries.OrderByDescending(e => e.Value).FirstOrDefault();
             TopCategory.Text = topCategory != null ? $"{topCategory.Label}: ${topCategory.Value}" : "Data not available";
+        }
+
+        async void OnSettingsClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//AccountSettings");
+        }
+
+        async void OnReportsClicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//AccountReport");
+
         }
     }
 }

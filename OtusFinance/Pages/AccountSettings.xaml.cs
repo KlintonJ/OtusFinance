@@ -23,8 +23,8 @@ public partial class AccountSettings : ContentPage
         // Handle Settings clicked
     }
 
-    private void OnOverviewClicked(object sender, EventArgs e)
+    async void OnOverviewClicked(object sender, EventArgs e)
     {
-        // Handle Overview clicked
+        await Shell.Current.GoToAsync("//OverviewPage");
     }
 }

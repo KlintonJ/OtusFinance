@@ -64,23 +64,8 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.8" />
-		<PackageReference Include="Telerik.UI.for.Maui.Trial" Version="6.8.0" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <Reference Include="Telerik.Maui.Controls">
-	    <HintPath>C:\Telerik myInstallation\Telerik UI for .NET MAUI 6.8.0\Binaries\Net8\WinUI\Telerik.Maui.Controls.dll</HintPath>
-	  </Reference>
-	  <Reference Include="Telerik.Maui.Controls.Compatibility">
-	    <HintPath>C:\Telerik myInstallation\Telerik UI for .NET MAUI 6.8.0\Binaries\Net8\WinUI\Telerik.Maui.Controls.Compatibility.dll</HintPath>
-	  </Reference>
-	  <Reference Include="Telerik.Maui.Core">
-	    <HintPath>C:\Telerik myInstallation\Telerik UI for .NET MAUI 6.8.0\Binaries\Net8\WinUI\Telerik.Maui.Core.dll</HintPath>
-	  </Reference>
-	  <Reference Include="Telerik.WinUI.Controls">
-	    <HintPath>C:\Telerik myInstallation\Telerik UI for .NET MAUI 6.8.0\Binaries\Net8\WinUI\Telerik.WinUI.Controls.dll</HintPath>
-	  </Reference>
-	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiXaml Update="Pages\AccountReport.xaml">

@@ -78,6 +78,10 @@ public partial class AccountReport : ContentPage
         await Shell.Current.GoToAsync("//AccountSettings");
     }
 
+    async void OnOverviewClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//OverviewPage");
+    }
     private async void OnLogExpenseClicked(object sender, EventArgs e)
     {
         try

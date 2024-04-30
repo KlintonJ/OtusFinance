@@ -20,9 +20,9 @@ xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
             <Image Source="logo.png" HeightRequest="50" Margin="0,0,0,20"/>
             <Button Text="Dashboard" TextColor="White"  FontSize="Small"  BackgroundColor="Transparent"
                  />
-            <Button Text="Reports" TextColor="White" FontSize="Small" BackgroundColor="Transparent"
+            <Button Text="Reports" TextColor="White" FontSize="Small" BackgroundColor="Transparent" Clicked="OnReportsClicked"
                  />
-            <Button Text="Settings" TextColor="White"  FontSize="Small" BackgroundColor="Transparent"
+            <Button Text="Settings" TextColor="White"  FontSize="Small" BackgroundColor="Transparent" Clicked="OnSettingsClicked"
                  />
             <Button Text="Overview" TextColor="#4CAF50"  FontSize="Small" BackgroundColor="Transparent"/>
         </StackLayout>
@@ -35,13 +35,13 @@ xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
 
                 <!-- Spending Categories Legend -->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Frame BackgroundColor="#BDB6AB" WidthRequest="20" HeightRequest="20"/>
+                    <Frame BackgroundColor="#77A1D3" WidthRequest="20" HeightRequest="20"/>
                     <Label Text=" Food and Drinks   "/>
-                    <Frame BackgroundColor="#8C92AC" WidthRequest="20" HeightRequest="20"/>
+                    <Frame BackgroundColor="#79D2DE" WidthRequest="20" HeightRequest="20"/>
                     <Label Text=" Travel   "/>
-                    <Frame BackgroundColor="#484848" WidthRequest="20" HeightRequest="20"/>
-                    <Label Text=" Income   "/>
-                    <Frame BackgroundColor="#D7A9B4" WidthRequest="20" HeightRequest="20"/>
+                    <Frame BackgroundColor="#EDE574" WidthRequest="20" HeightRequest="20"/>
+                    <Label Text=" Housing and Utilities   "/>
+                    <Frame BackgroundColor="#E38690" WidthRequest="20" HeightRequest="20"/>
                     <Label Text=" Other Expenses"/>
                 </StackLayout>
 
