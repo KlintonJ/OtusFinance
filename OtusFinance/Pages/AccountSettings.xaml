@@ -44,7 +44,8 @@
                         <Label Text="User Account" FontAttributes="Bold" FontSize="22" TextColor="Black"/>
                         <Entry Text="Username" FontSize="16" TextColor="Black"/>
                         <Entry Text="********" FontSize="16" IsPassword="True" TextColor="Black"/>
-                        <Button Text="Log Out" BackgroundColor="#4CAF50" TextColor="White"  WidthRequest="150" HorizontalOptions="Start"/>
+                        <Button Text="Log Out" BackgroundColor="#4CAF50" TextColor="White"  WidthRequest="150" HorizontalOptions="Start"
+                                Clicked="OnLogOutClicked"/>
 
                         <Entry Placeholder="New Username..." TextColor="Black"/>
                         <Entry Placeholder="New Password..." IsPassword="True" TextColor="Black"/>

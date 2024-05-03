@@ -27,4 +27,11 @@ public partial class AccountSettings : ContentPage
     {
         await Shell.Current.GoToAsync("//OverviewPage");
     }
+
+    private async void OnLogOutClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//MainPage");
+
+        await DisplayAlert("Success!", "Log out was successful.", "OK"); 
+    }
 }
