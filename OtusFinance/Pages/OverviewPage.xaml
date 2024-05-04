@@ -3,10 +3,9 @@
 xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OtusFinance.Pages.OverviewPage"
-             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
-             
-
-             Title="OverviewPage">
+             xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui" 
+              xmlns:local="clr-namespace:OtusFinance"
+            Title="">
 
 
     <Grid RowSpacing="0" ColumnSpacing="0">
@@ -26,6 +25,7 @@ xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
                  />
             <Button Text="Overview" TextColor="#4CAF50"  FontSize="Small" BackgroundColor="Transparent"/>
         </StackLayout>
+        
 
         <!-- Main Content -->
         <ScrollView Grid.Column="1">

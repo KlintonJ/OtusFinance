@@ -8,27 +8,27 @@
     Title="OtusFinance">
 
     <ShellContent
-        Title="Home"
+        Title=""
         ContentTemplate="{DataTemplate local:LandingPage}"
         Route="MainPage" />
     <ShellContent
-        Title="Login"
+        Title=""
         ContentTemplate="{DataTemplate local:LoginPage}"
         Route="LoginPage" />
     <ShellContent
-        Title="Signup"
+        Title=""
         ContentTemplate="{DataTemplate local:SignupPage}"
         Route="SignupPage" />
     <ShellContent
-        Title="AccountSettings"
+        Title=""
         ContentTemplate="{DataTemplate local:AccountSettings}"
         Route="AccountSettings" />
     <ShellContent
-        Title="AccountReport"
+        Title=""
         ContentTemplate="{DataTemplate local:AccountReport}"
         Route="AccountReport" />
     <ShellContent
-        Title="OverviewPage"
+        Title=""
         ContentTemplate="{DataTemplate local:OverviewPage}"
         Route="OverviewPage" />
 
