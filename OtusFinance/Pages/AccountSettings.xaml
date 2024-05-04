@@ -12,7 +12,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-
+      
         <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="#1F1F1F" Padding="15">
             <Image Source="logo.png" HeightRequest="50" Margin="0,0,0,20"/>
             <Button Text="Dashboard" TextColor="White"  FontSize="Small"  BackgroundColor="Transparent"
@@ -27,15 +27,15 @@
 
         <ScrollView Grid.Column="1" Padding="30" HorizontalOptions="FillAndExpand" BackgroundColor="#F5F5F5">
             <VerticalStackLayout Spacing="20">
-                
-                 <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
 
                     <Label Text="{Binding Source={x:Static local:UserData.Username}}" FontSize="16" TextColor="Black"/>
 
                     <Image Source="user_profile.png" HeightRequest="30"/>
-                  </HorizontalStackLayout>
+                </HorizontalStackLayout>
 
-             <Label Text="Account Settings" FontAttributes="Bold" FontSize="30" TextColor="Black"/>
+                <Label Text="Account Settings" FontAttributes="Bold" FontSize="30" TextColor="Black"/>
 
                
                 <Frame BackgroundColor="White" Padding="20" CornerRadius="5">

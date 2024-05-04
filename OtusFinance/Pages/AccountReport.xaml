@@ -5,7 +5,7 @@
              x:Class="OtusFinance.Pages.AccountReport"
              Title="">
 
-    <Grid>
+    <Grid BackgroundColor="#F5F5F5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -24,18 +24,20 @@
             <Button Text="Overview" TextColor="White" FontSize="Subtitle" BackgroundColor="Transparent" Clicked="OnOverviewClicked"/>
         </StackLayout>
 
-        <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal" BackgroundColor="#1E1E1E" Padding="10">
+        <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#232323" Padding="20" CornerRadius="0">
+            <StackLayout Grid.Row="0" Grid.Column="1" Orientation="Horizontal" Padding="10">
             <Label Text="Account Report" HorizontalOptions="StartAndExpand" FontSize="Large" TextColor="White" VerticalOptions="Center"/>
             <Label Text="{Binding Source={x:Static local:UserData.Username}}" HorizontalOptions="End" FontSize="Subtitle" TextColor="White" VerticalOptions="Center"/>
         </StackLayout>
-
+        </Frame>
         <ScrollView Grid.Row="1" Grid.Column="1">
             <StackLayout Padding="20">
                 <Label Text="Transaction History" FontSize="Medium" TextColor="Black"/>
-                <VerticalStackLayout x:Name="TransactionHistoryContainer" Spacing="10" />
+                    <VerticalStackLayout x:Name="TransactionHistoryContainer" Spacing="10" />
 
-                <!-- Account Log Section -->
-                <Label Text="Log New Expense" FontSize="Micro" TextColor="Black"/>
+                    <!-- Account Log Section -->
+                    <Label Text="Log New Expense" FontSize="Micro" TextColor="Black"/>
+                
 
                 <Grid Padding="10">
                     <Grid.ColumnDefinitions>

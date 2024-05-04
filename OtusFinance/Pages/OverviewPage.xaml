@@ -9,6 +9,12 @@ xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
 
 
     <Grid RowSpacing="0" ColumnSpacing="0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
             <ColumnDefinition Width="*"/>
@@ -16,7 +22,7 @@ xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
 
 
         <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="#1F1F1F" Padding="15">
-            <Image Source="logo.png" HeightRequest="50" Margin="0,0,0,20"/>
+            <Image Source="logo.png" HeightRequest="50" Margin="10"/>
             <Button Text="Dashboard" TextColor="White"  FontSize="Small"  BackgroundColor="Transparent"
                  />
             <Button Text="Reports" TextColor="White" FontSize="Small" BackgroundColor="Transparent" Clicked="OnReportsClicked"
@@ -25,11 +31,24 @@ xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
                  />
             <Button Text="Overview" TextColor="#4CAF50"  FontSize="Small" BackgroundColor="Transparent"/>
         </StackLayout>
-        
+
 
         <!-- Main Content -->
-        <ScrollView Grid.Column="1">
+        <ScrollView Grid.Row="0" Grid.Column="1" Padding="10">
+            
             <VerticalStackLayout Margin="20">
+                
+                    <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
+
+                        
+                            <Label Text="{Binding Source={x:Static local:UserData.Username}}" FontSize="16" TextColor="Black"/>
+
+                    <Image Source="user_profile.png" HeightRequest="30"/>
+                        
+                    </HorizontalStackLayout>
+
+                <Label Text="Account Overview" FontAttributes="Bold" FontSize="30" TextColor="Black"/>
+               
                 <!-- Pie Chart -->
                 <micro:ChartView x:Name="PieChartView" HeightRequest="400"/>
 
