@@ -7,20 +7,20 @@ public partial class AccountSettings : ContentPage
 		InitializeComponent();
 
     }
-    private void OnDashboardClicked(object sender, EventArgs e)
+    async void OnDashboardClicked(object sender, EventArgs e)
     {
-        // Handle Dashboard clicked
+        await Shell.Current.GoToAsync("//DashboardPage");
     }
 
     async void OnReportsClicked(object sender, EventArgs e)
     {
-       await Shell.Current.GoToAsync("//AccountReport");
-       
+        await Shell.Current.GoToAsync("//AccountReport");
+
     }
 
-    private void OnSettingsClicked(object sender, EventArgs e)
+    async void OnSettingsClicked(object sender, EventArgs e)
     {
-        // Handle Settings clicked
+        await Shell.Current.GoToAsync("//AccountSettings");
     }
 
     async void OnOverviewClicked(object sender, EventArgs e)
