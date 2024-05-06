@@ -16,12 +16,12 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackLayout Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" BackgroundColor="#232323">
-            <Image Source="logo.png" HeightRequest="50" Margin="10"/>
-            <Button Text="Dashboard" TextColor="White" FontSize="Subtitle" BackgroundColor="Transparent"/>
-            <Button Text="Reports" TextColor="#4CAF50" FontSize="Subtitle" BackgroundColor="Transparent"/>
-            <Button Text="Settings" TextColor="White" FontSize="Subtitle" BackgroundColor="Transparent" Clicked="OnSettingsClicked"/>
-            <Button Text="Overview" TextColor="White" FontSize="Subtitle" BackgroundColor="Transparent" Clicked="OnOverviewClicked"/>
+        <StackLayout Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" BackgroundColor="#232323" Padding="15">
+            <Image Source="logo.png" HeightRequest="50" Margin="0,0,0,20"/>
+            <Button Text="Dashboard" TextColor="White" FontSize="Small" BackgroundColor="Transparent" Clicked="OnDashboardClicked"/>
+            <Button Text="Reports" TextColor="#4CAF50" FontSize="Small" BackgroundColor="Transparent"/>
+            <Button Text="Settings" TextColor="White" FontSize="Small" BackgroundColor="Transparent" Clicked="OnSettingsClicked"/>
+            <Button Text="Overview" TextColor="White" FontSize="Small" BackgroundColor="Transparent" Clicked="OnOverviewClicked"/>
         </StackLayout>
 
         <Frame Grid.Row="0" Grid.Column="1" BackgroundColor="#232323" Padding="20" CornerRadius="0">

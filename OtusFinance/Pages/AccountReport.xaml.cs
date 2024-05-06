@@ -73,6 +73,11 @@ public partial class AccountReport : ContentPage
         }
     }
 
+    async void OnDashboardClicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("//DashboardPage");
+    }
+
     async void OnSettingsClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//AccountSettings");

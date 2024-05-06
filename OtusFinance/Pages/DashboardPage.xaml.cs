@@ -11,10 +11,6 @@ public partial class DashboardPage : ContentPage
         LoadChartData();
 	}
 
-    async void OnDashboardClicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync("//DashboardPage");    
-    }
 
     async void OnReportsClicked(object sender, EventArgs e)
     {

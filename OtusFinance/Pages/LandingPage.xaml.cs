@@ -33,8 +33,8 @@ public partial class LandingPage : ContentPage
         await Shell.Current.GoToAsync("//LoginPage");
     }
 
-    private void OnSignUpClicked(object sender, EventArgs e)
+    async void OnSignUpClicked(object sender, EventArgs e)
     {
-        //handle signup.
+        await Shell.Current.GoToAsync("//SignupPage");
     }
 }

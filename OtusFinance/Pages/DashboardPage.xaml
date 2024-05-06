@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OtusFinance.Pages.DashboardPage"
-             Title="DashboardPage"
+             xmlns:local="clr-namespace:OtusFinance"
+             Title=""
              xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui">
     
 
@@ -16,7 +17,7 @@
         <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="#1F1F1F" Padding="15">
             <Image Source="logo.png" HeightRequest="50" Margin="0,0,0,20"/>
             <Button Text="Dashboard" TextColor="#4CAF50"  FontSize="Small"  BackgroundColor="Transparent"
-                    Clicked="OnDashboardClicked" />
+                    />
             <Button Text="Reports" TextColor="White" FontSize="Small" BackgroundColor="Transparent"
                     Clicked="OnReportsClicked" />
             <Button Text="Settings" TextColor="White"  FontSize="Small" BackgroundColor="Transparent"
@@ -30,7 +31,7 @@
 
                 <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
 
-                    <Label Text="Chance" FontSize="16" TextColor="Black"/>
+                    <Label Text="{Binding Source={x:Static local:UserData.Username}}" FontSize="16" TextColor="Black"/>
 
                     <Image Source="user_profile.png" HeightRequest="30"/>
                 </HorizontalStackLayout>
@@ -51,7 +52,7 @@
                     <Label Text="..." TextColor="Black"/>
 
                     <Button Text="See more" TextColor="Blue" BackgroundColor="Transparent"
-                            HeightRequest="10" WidthRequest="100" HorizontalOptions="Start"/>
+                            HeightRequest="10" WidthRequest="100" HorizontalOptions="Start" Clicked="OnOverviewClicked"/>
                 </VerticalStackLayout>
 
 

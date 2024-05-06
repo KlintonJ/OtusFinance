@@ -22,8 +22,8 @@ xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
 
 
         <StackLayout Grid.Column="0" Grid.Row="0" BackgroundColor="#1F1F1F" Padding="15">
-            <Image Source="logo.png" HeightRequest="50" Margin="10"/>
-            <Button Text="Dashboard" TextColor="White"  FontSize="Small"  BackgroundColor="Transparent"
+            <Image Source="logo.png" HeightRequest="50" Margin="0,0,0,20"/>
+            <Button Text="Dashboard" TextColor="White"  FontSize="Small"  BackgroundColor="Transparent" Clicked="OnDashboardClicked"
                  />
             <Button Text="Reports" TextColor="White" FontSize="Small" BackgroundColor="Transparent" Clicked="OnReportsClicked"
                  />
@@ -34,35 +34,44 @@ xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
 
 
         <!-- Main Content -->
-        <ScrollView Grid.Row="0" Grid.Column="1" Padding="10">
+        <ScrollView Grid.Row="0" Grid.Column="1" Padding="10" BackgroundColor="#F5F5F5">
             
             <VerticalStackLayout Margin="20">
                 
                     <HorizontalStackLayout Spacing="10" HorizontalOptions="End">
 
                         
-                            <Label Text="{Binding Source={x:Static local:UserData.Username}}" FontSize="16" TextColor="Black"/>
+                    <Label Text="{Binding Source={x:Static local:UserData.Username}}" FontSize="16" TextColor="Black"/>
 
                     <Image Source="user_profile.png" HeightRequest="30"/>
                         
                     </HorizontalStackLayout>
 
-                <Label Text="Account Overview" FontAttributes="Bold" FontSize="30" TextColor="Black"/>
+                <Label Text="Account Overview" FontAttributes="Bold" FontSize="30" TextColor="Black" Padding="0,0,0,10"/>
                
                 <!-- Pie Chart -->
-                <micro:ChartView x:Name="PieChartView" HeightRequest="400"/>
+                <Frame BackgroundColor="Transparent" Padding="20" BorderColor="Black" HeightRequest="450" CornerRadius="5" Margin="0,0,0,20">
+                    <micro:ChartView x:Name="PieChartView" HeightRequest="400"/>
+                </Frame>
 
-                <!-- Spending Categories Legend -->
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Frame BackgroundColor="#77A1D3" WidthRequest="20" HeightRequest="20"/>
-                    <Label Text=" Food and Drinks   "/>
-                    <Frame BackgroundColor="#79D2DE" WidthRequest="20" HeightRequest="20"/>
-                    <Label Text=" Travel   "/>
-                    <Frame BackgroundColor="#EDE574" WidthRequest="20" HeightRequest="20"/>
-                    <Label Text=" Housing and Utilities   "/>
-                    <Frame BackgroundColor="#E38690" WidthRequest="20" HeightRequest="20"/>
-                    <Label Text=" Other Expenses"/>
-                </StackLayout>
+                        <!-- Spending Categories Legend -->
+                <Grid RowDefinitions="*,1000" ColumnDefinitions="*,*,*,*">
+                    <!-- The 1000 added to RowDimensions is to fix the issue with the grey. Temporary.-->
+
+                        <Frame BackgroundColor="#77A1D3" WidthRequest="20" HeightRequest="20" Grid.Column="0">
+                    </Frame>
+                    <Label Text=" Food and Drinks" TextColor="Black" Grid.Column="0" HorizontalTextAlignment="Start"/> 
+                    <Frame BackgroundColor="#79D2DE" WidthRequest="20" HeightRequest="20" Grid.Column="1">
+                    </Frame>
+                    <Label Text=" Travel" TextColor="Black" Grid.Column="1" HorizontalTextAlignment="Start"/>
+                    <Frame BackgroundColor="#EDE574" WidthRequest="20" HeightRequest="20" Grid.Column="2">
+                    </Frame>
+                    <Label Text="Utilities" TextColor="Black" Grid.Column="2" HorizontalTextAlignment="Start"/>
+
+                    <Frame BackgroundColor="#E38690" WidthRequest="20" HeightRequest="20" Grid.Column="3">
+                    </Frame>
+                    <Label Text=" Other Expenses" TextColor="Black" Grid.Column="3" HorizontalTextAlignment="Start"/>
+                </Grid>
 
                 <!-- Top Spending Categories -->
                 <Label Text="Top Spending Categories" FontAttributes="Bold"/>
