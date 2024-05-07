@@ -47,4 +47,18 @@ public partial class AccountSettings : ContentPage
 
         await DisplayAlert("Success!", "Log out was successful.", "OK"); 
     }
+
+    private async void OnChangePasswordClicked(object sender, EventArgs e)
+    {
+        if (NewPassword.Text != ConfirmPassword.Text)
+        {
+            await DisplayAlert("Error", "Passwords do not match.", "OK");
+            return;
+        }
+        bool result = await _db.ChangePasswordAsync(NewPassword.Text);
+        if (result)
+            await DisplayAlert("Success", "Password changed successfully.", "OK");
+        else
+            await DisplayAlert("Error", "Failed to change password.", "OK");
+    }
 }

@@ -59,7 +59,7 @@ namespace OtusFinance
             catch (Exception ex)
             {
                 Debug.WriteLine("Error adding transaction: " + ex.Message);
-                throw; // Re-throw the exception to ensure it gets noticed
+                throw; 
             }
         }
 
@@ -137,6 +137,18 @@ namespace OtusFinance
                                                 .Where(t => t.Username == username && t.Date >= startOfMonth)
                                                 .ToListAsync();
             return transactions.Where(t => t.Category == "Expense").Sum(t => t.Amount);
+        }
+
+        public async Task<bool> ChangePasswordAsync(string newPassword)
+        {
+            var user = await _connection.Table<User>().Where(u => u.Email == UserData.Username).FirstOrDefaultAsync();
+            if (user == null)
+            {
+                throw new InvalidOperationException("User not found.");
+            }
+            user.Password = newPassword; //Update the password
+            var result = await _connection.UpdateAsync(user); 
+            return result > 0; //returns true for success
         }
 
     }
