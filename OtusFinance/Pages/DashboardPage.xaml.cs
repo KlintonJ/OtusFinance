@@ -1,5 +1,7 @@
 using Microcharts;
 using SkiaSharp;
+using System.Collections.ObjectModel;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -7,10 +9,15 @@ namespace OtusFinance.Pages;
 
 public partial class DashboardPage : ContentPage
 {
+    private User CurrentUser { get; set; }
+    public ObservableCollection<TransactionViewModel> RecentTransactions { get; set; } = new ObservableCollection<TransactionViewModel>();
+
     public DashboardPage()
     {
         InitializeComponent();
+        this.BindingContext = this;
         LoadChartData();
+        LoadBudgetInfo();
     }
 
     async void OnReportsClicked(object sender, EventArgs e)
@@ -31,7 +38,19 @@ public partial class DashboardPage : ContentPage
     protected override async void OnAppearing() //refresh
     {
         base.OnAppearing();
-        await LoadChartData();  
+        await LoadChartData();
+        await LoadBudgetInfo();
+    }
+    private async Task LoadBudgetInfo()
+    {
+        string username = UserData.Username;  
+        CurrentUser = await new LocalDB().GetUserByUsernameAsync(username);
+
+        MonthlyCapLabel.Text = $"Your Monthly Cap: ${CurrentUser.monthlyCap}";
+        var totalExpensesThisMonth = await new LocalDB().GetTotalExpensesThisMonth(username);
+        var amountLeft = CurrentUser.monthlyCap - totalExpensesThisMonth;
+
+        AmountLeftLabel.Text = $"Amount Left This Month: ${amountLeft}";
     }
 
     private async Task LoadChartData()
@@ -55,5 +74,24 @@ public partial class DashboardPage : ContentPage
                 PointSize = 18,
             };
         }
+        LoadRecentTransactions();
     }
+    private async void LoadRecentTransactions()
+    {
+        var transactions = await new LocalDB().GetLatestTransactionsAsync(10);  // get 10
+        RecentTransactions.Clear();
+        foreach (var transaction in transactions)
+        {
+            RecentTransactions.Add(new TransactionViewModel
+            {
+                DisplayTransaction = $"{transaction.Date:MMM dd}: {transaction.Type}, ${transaction.Amount}"
+            });
+        }
+        TransactionsList.ItemsSource = RecentTransactions;  // Bind to the CollectionView
+    }
+    public class TransactionViewModel
+    {
+        public string DisplayTransaction { get; set; }
+    }
+    
 }

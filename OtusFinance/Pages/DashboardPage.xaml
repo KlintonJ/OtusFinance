@@ -38,22 +38,28 @@
 
                 <Label Text="Dashboard" FontAttributes="Bold" FontSize="30" TextColor="Black" Padding="0,0,0,10"/>
 
-                <Label Text="Income and Expenses (date-date)" FontSize="16" TextColor="Black"/>
+                <Label Text="Recent Income and Expenses" FontSize="16" TextColor="Black"/>
 
                 <Frame BackgroundColor="Transparent" Padding="20" BorderColor="Black" HeightRequest="200" CornerRadius="5">
                     <micro:ChartView x:Name="LineChartView" HeightRequest="180"/>
                 </Frame>
 
+                <!-- Inside the ScrollView -->
                 <Label Text="Recent Transactions:" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
-                <VerticalStackLayout>
-                    <Label Text="DATE: TRANSACTION_NAME, $AMOUNT" TextColor="Black"/>
-                    <Label Text="DATE: TRANSACTION_NAME, $AMOUNT" TextColor="Black"/>
-                    <Label Text="DATE: TRANSACTION_NAME, $AMOUNT" TextColor="Black"/>
-                    <Label Text="..." TextColor="Black"/>
+                <CollectionView x:Name="TransactionsList">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding DisplayTransaction}" TextColor="Black"/>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button Text="See More" TextColor="Blue" FontSize="16" BackgroundColor="Transparent" HorizontalOptions="Start" VerticalOptions="Start" Padding="0" 
+                    Clicked="OnReportsClicked" />
+                <Label Text="Your Monthly Cap: $" FontSize="16" TextColor="Black" x:Name="MonthlyCapLabel"/>
+                <Label Text="Amount Left This Month: $" FontSize="16" TextColor="Black" x:Name="AmountLeftLabel"/>
 
-                    <Button Text="See more" TextColor="Blue" BackgroundColor="Transparent"
-                            HeightRequest="10" WidthRequest="100" HorizontalOptions="Start" Clicked="OnOverviewClicked"/>
-                </VerticalStackLayout>
 
 
 

@@ -127,6 +127,15 @@ namespace OtusFinance
             return false;
         }
 
+        public async Task<decimal> GetTotalExpensesThisMonth(string username)
+        {
+            var now = DateTime.Now;
+            var startOfMonth = new DateTime(now.Year, now.Month, 1);
+            var transactions = await _connection.Table<Transactions>()
+                                                .Where(t => t.Username == username && t.Date >= startOfMonth)
+                                                .ToListAsync();
+            return transactions.Where(t => t.Category == "Expense").Sum(t => t.Amount);
+        }
 
     }
 
