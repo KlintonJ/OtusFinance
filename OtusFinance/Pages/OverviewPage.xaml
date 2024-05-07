@@ -55,23 +55,30 @@ xmlns:telerik="http://schemas.telerik.com/2022/xaml/maui"
                 </Frame>
 
                         <!-- Spending Categories Legend -->
-                <Grid RowDefinitions="*,1000" ColumnDefinitions="*,*,*,*">
-                    <!-- The 1000 added to RowDimensions is to fix the issue with the grey. Temporary.-->
+                <Grid RowDefinitions="*,1000" ColumnDefinitions="*,*,*,*,*">
+                    <!-- The 1000 added to RowDefinitions is to fix the issue with the grey. Temporary.-->
 
-                        <Frame BackgroundColor="#77A1D3" WidthRequest="20" HeightRequest="20" Grid.Column="0">
-                    </Frame>
-                    <Label Text=" Food and Drinks" TextColor="Black" Grid.Column="0" HorizontalTextAlignment="Start"/> 
-                    <Frame BackgroundColor="#79D2DE" WidthRequest="20" HeightRequest="20" Grid.Column="1">
-                    </Frame>
-                    <Label Text=" Travel" TextColor="Black" Grid.Column="1" HorizontalTextAlignment="Start"/>
-                    <Frame BackgroundColor="#EDE574" WidthRequest="20" HeightRequest="20" Grid.Column="2">
-                    </Frame>
-                    <Label Text="Utilities" TextColor="Black" Grid.Column="2" HorizontalTextAlignment="Start"/>
+                    <!-- Food and Drinks -->
+                    <Frame BackgroundColor="#77A1D3" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="0"/>
+                    <Label Text="Food and Drinks" TextColor="Black" Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Start" Margin="25,0,0,0"/>
 
-                    <Frame BackgroundColor="#E38690" WidthRequest="20" HeightRequest="20" Grid.Column="3">
-                    </Frame>
-                    <Label Text=" Other Expenses" TextColor="Black" Grid.Column="3" HorizontalTextAlignment="Start"/>
+                    <!-- Travel -->
+                    <Frame BackgroundColor="#79D2DE" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="1"/>
+                    <Label Text="Travel" TextColor="Black" Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Start" Margin="25,0,0,0"/>
+
+                    <!-- Utilities -->
+                    <Frame BackgroundColor="#EDE574" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="2"/>
+                    <Label Text="Utilities" TextColor="Black" Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Start" Margin="25,0,0,0"/>
+
+                    <!-- Income -->
+                    <Frame BackgroundColor="#00FF00" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="3"/>
+                    <Label Text="Income" TextColor="Black" Grid.Row="0" Grid.Column="3" HorizontalTextAlignment="Start" Margin="25,0,0,0"/>
+
+                    <!-- Other Expenses -->
+                    <Frame BackgroundColor="#E38690" WidthRequest="20" HeightRequest="20" Grid.Row="0" Grid.Column="4"/>
+                    <Label Text="Other Expenses" TextColor="Black" Grid.Row="0" Grid.Column="4" HorizontalTextAlignment="Start" Margin="25,0,0,0"/>
                 </Grid>
+
 
                 <!-- Top Spending Categories -->
                 <Label Text="Top Spending Categories" FontAttributes="Bold"/>

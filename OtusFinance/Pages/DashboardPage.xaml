@@ -41,7 +41,7 @@
                 <Label Text="Income and Expenses (date-date)" FontSize="16" TextColor="Black"/>
 
                 <Frame BackgroundColor="Transparent" Padding="20" BorderColor="Black" HeightRequest="200" CornerRadius="5">
-                    <micro:ChartView x:Name="LineChartView" HeightRequest="200"/>
+                    <micro:ChartView x:Name="LineChartView" HeightRequest="180"/>
                 </Frame>
 
                 <Label Text="Recent Transactions:" FontAttributes="Bold" FontSize="16" TextColor="Black"/>

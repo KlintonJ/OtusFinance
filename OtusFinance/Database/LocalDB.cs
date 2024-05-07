@@ -87,6 +87,14 @@ namespace OtusFinance
             return totalsByCategory;
         }
 
+        public async Task<List<Transactions>> GetLatestTransactionsAsync(int count = 15)
+        {
+            return await _connection.Table<Transactions>()
+                .OrderByDescending(t => t.Date)  // Sort by Date in descending order
+                .Take(count)                    // Limit to the specified number of records
+                .ToListAsync();
+        }
+
         public async Task<int> UpdateTransactionAsync(Transactions transaction)
         {
             return await _connection.UpdateAsync(transaction);

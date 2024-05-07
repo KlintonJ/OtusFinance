@@ -1,21 +1,21 @@
 using Microcharts;
 using SkiaSharp;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace OtusFinance.Pages;
 
 public partial class DashboardPage : ContentPage
 {
-	public DashboardPage()
-	{
-		InitializeComponent();
+    public DashboardPage()
+    {
+        InitializeComponent();
         LoadChartData();
-	}
-
+    }
 
     async void OnReportsClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//AccountReport");
-
     }
 
     async void OnSettingsClicked(object sender, EventArgs e)
@@ -28,31 +28,32 @@ public partial class DashboardPage : ContentPage
         await Shell.Current.GoToAsync("//OverviewPage");
     }
 
-    private void LoadChartData()
+    protected override async void OnAppearing() //refresh
     {
-        var entries = new List<ChartEntry>
-            {
-             //SAMPLE DATA. Ideally, this data would aim towards the savings goal.
-             //For example, if our user intends to save $200, then the line chart would
-             //show how far he or she is off of the goal ($-20, +$30, etc). 
-
-                new ChartEntry(95) { Label = "", ValueLabel = "$95", Color = SKColor.Parse("#FF0000") },
-                new ChartEntry(225) { Label = "", ValueLabel = "$225", Color = SKColor.Parse("#00FF00") },
-                new ChartEntry(245) { Label = "", ValueLabel = "$245", Color = SKColor.Parse("#00FF00") },
-                new ChartEntry(95) { Label = "", ValueLabel = "$95", Color = SKColor.Parse("##FF0000") },
-                new ChartEntry(225) { Label = "", ValueLabel = "$225", Color = SKColor.Parse("#00FF00") },
-                new ChartEntry(245) { Label = "", ValueLabel = "$245", Color = SKColor.Parse("#00FF00") },
-                new ChartEntry(95) { Label = "", ValueLabel = "$95", Color = SKColor.Parse("#FF0000") },
-                new ChartEntry(225) { Label = "", ValueLabel = "$225", Color = SKColor.Parse("#00FF00") },
-                new ChartEntry(245) { Label = "", ValueLabel = "$245", Color = SKColor.Parse("#00FF00") },
-                new ChartEntry(180) { Label = "", ValueLabel = "$180", Color = SKColor.Parse("#FF0000") }
-            };
-
-
-        LineChartView.Chart = new LineChart
-        {
-            Entries = entries
-        };
+        base.OnAppearing();
+        await LoadChartData();  
     }
 
+    private async Task LoadChartData()
+    {
+        var latestExpenses = await new LocalDB().GetLatestTransactionsAsync();
+        var entries = latestExpenses.Select(expense => new ChartEntry((float)expense.Amount)
+        {
+            Label = expense.Date.ToString("MMM dd"),  
+            ValueLabel = $"${expense.Amount}",
+            Color = expense.Category == "Expense" ? SKColor.Parse("#FF0000") : SKColor.Parse("#00FF00")  // green for income, red for expense
+        }).ToList();
+
+        if (entries.Any())
+        {
+            LineChartView.Chart = new LineChart
+            {
+                Entries = entries,
+                LineMode = LineMode.Straight,
+                LineSize = 8,
+                PointMode = PointMode.Circle,
+                PointSize = 18,
+            };
+        }
+    }
 }

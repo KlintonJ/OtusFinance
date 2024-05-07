@@ -57,7 +57,7 @@ namespace OtusFinance.Pages
             {
                 case "Food and Drinks": return SKColor.Parse("#77A1D3");
                 case "Travel": return SKColor.Parse("#79D2DE");
-                case "Income": return SKColor.Parse("#EDE574");
+                case "Income": return SKColor.Parse("#00FF00");
                 case "Housing and Utilities": return SKColor.Parse("#EDE574");
                 case "Other Expenses": return SKColor.Parse("#E38690");
                 default: return SKColor.Parse("#CCCCCC"); // Default color for undefined categories
