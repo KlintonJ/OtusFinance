@@ -80,15 +80,24 @@ public partial class DashboardPage : ContentPage
     {
         var transactions = await new LocalDB().GetLatestTransactionsAsync(10);  // get 10
         RecentTransactions.Clear();
-        foreach (var transaction in transactions)
+
+        if (!transactions.Any())  
         {
-            RecentTransactions.Add(new TransactionViewModel
-            {
-                DisplayTransaction = $"{transaction.Date:MMM dd}: {transaction.Type}, ${transaction.Amount}"
-            });
+            await DisplayAlert("No Transactions", "No transactions found. You can add new transactions from the Report Page, and set a Monthly Spending Cap on the Settings Page", "OK");  //alert if new user or no transactions
         }
-        TransactionsList.ItemsSource = RecentTransactions;  // Bind to the CollectionView
+        else
+        {
+            foreach (var transaction in transactions)
+            {
+                RecentTransactions.Add(new TransactionViewModel
+                {
+                    DisplayTransaction = $"{transaction.Date:MMM dd}: {transaction.Type}, ${transaction.Amount}"
+                });
+            }
+            TransactionsList.ItemsSource = RecentTransactions;  // Bind to the CollectionView
+        }
     }
+
     public class TransactionViewModel
     {
         public string DisplayTransaction { get; set; }
