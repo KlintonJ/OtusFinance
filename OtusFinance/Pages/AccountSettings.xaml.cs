@@ -67,5 +67,8 @@ public partial class AccountSettings : ContentPage
         {
             await DisplayAlert("Error", "Current password incorrect.", "OK");
         }
+        CurrentPassword.Text = string.Empty;
+        NewPassword.Text = string.Empty;
+        ConfirmPassword.Text = string.Empty;
     }
 }
