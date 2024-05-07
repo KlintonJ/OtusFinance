@@ -17,7 +17,7 @@ public partial class AccountSettings : ContentPage
 
     private async void OnSaveMonthlyCapClicked(object sender, EventArgs e)
     {
-        var username = UserData.Username;  // Ensure UserData is correctly defined and accessible
+        var username = UserData.Username;  
         bool updated = await _db.UpdateMonthlyCapByUsernameAsync(username, MonthlyCap);
         if (updated)
             await DisplayAlert("Success", "Monthly cap updated successfully.", "OK");
@@ -50,15 +50,22 @@ public partial class AccountSettings : ContentPage
 
     private async void OnChangePasswordClicked(object sender, EventArgs e)
     {
-        if (NewPassword.Text != ConfirmPassword.Text)
+        if (CurrentPassword.Text == await _db.GetCurrentPasswordAsync(UserData.Username))
         {
-            await DisplayAlert("Error", "Passwords do not match.", "OK");
-            return;
+            if (NewPassword.Text != ConfirmPassword.Text)
+            {
+                await DisplayAlert("Error", "Passwords do not match.", "OK");
+                return;
+            }
+            bool result = await _db.ChangePasswordAsync(NewPassword.Text);
+            if (result)
+                await DisplayAlert("Success", "Password changed successfully.", "OK");
+            else
+                await DisplayAlert("Error", "Failed to change password.", "OK");
         }
-        bool result = await _db.ChangePasswordAsync(NewPassword.Text);
-        if (result)
-            await DisplayAlert("Success", "Password changed successfully.", "OK");
         else
-            await DisplayAlert("Error", "Failed to change password.", "OK");
+        {
+            await DisplayAlert("Error", "Current password incorrect.", "OK");
+        }
     }
 }

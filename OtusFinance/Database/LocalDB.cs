@@ -151,6 +151,17 @@ namespace OtusFinance
             return result > 0; //returns true for success
         }
 
+        public async Task<string> GetCurrentPasswordAsync(string username)
+        {
+            var user = await _connection.Table<User>().Where(u => u.Email == username).FirstOrDefaultAsync();
+            if (user == null)
+            {
+                throw new InvalidOperationException("User not found.");
+            }
+            return user.Password; 
+        }
+
+
     }
 
 }
