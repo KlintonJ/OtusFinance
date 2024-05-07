@@ -33,7 +33,7 @@ namespace OtusFinance.Pages
                 UserData.Username = username;
                 Debug.WriteLine("Login successful.");
                 await DisplayAlert("Welcome", "Login successful!", "OK");
-                await Shell.Current.GoToAsync("//AccountSettings");
+                await Shell.Current.GoToAsync("//DashboardPage");
             }
             else
             {
