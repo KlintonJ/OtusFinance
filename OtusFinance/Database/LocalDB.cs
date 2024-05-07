@@ -110,6 +110,23 @@ namespace OtusFinance
             return await _connection.Table<Transactions>().Where(t => t.ID == id).FirstOrDefaultAsync();
         }
 
+        public async Task<User> GetUserByUsernameAsync(string username)
+        {
+            return await _connection.Table<User>().Where(u => u.Email == username).FirstOrDefaultAsync();
+        }
+
+        public async Task<bool> UpdateMonthlyCapByUsernameAsync(string username, int? newMonthlyCap)
+        {
+            var user = await GetUserByUsernameAsync(username);
+            if (user != null)
+            {
+                user.monthlyCap = newMonthlyCap;
+                await _connection.UpdateAsync(user);
+                return true;
+            }
+            return false;
+        }
+
 
     }
 

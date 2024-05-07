@@ -20,5 +20,8 @@ namespace OtusFinance
 
         [Column("password")]
         public string Password { get; set; }
+
+        [Column("monthlyCap")]
+        public int? monthlyCap {  get; set; }
     }
 }

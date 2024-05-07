@@ -75,10 +75,9 @@
 
                         
                         <VerticalStackLayout Grid.Column="1" Grid.Row="0" Spacing="15">
-                            <Label Text="Savings Goal" FontAttributes="Bold" FontSize="22" TextColor="Black"/>
-                            <Entry Placeholder="Enter amount in $" Keyboard="Numeric" TextColor="Black"/>
-                            <DatePicker FontSize="16" TextColor="Black"/>
-                            <Button Text="Save Goal" BackgroundColor="#4CAF50" TextColor="White" WidthRequest="150" HorizontalOptions="Start"/>
+                            <Label Text="Monthly Cap" FontAttributes="Bold" FontSize="22" TextColor="Black"/>
+                            <Entry Placeholder="Enter amount in $" Keyboard="Numeric" Text="{Binding MonthlyCap}" TextColor="Black"/>
+                            <Button Text="Save" BackgroundColor="#4CAF50" TextColor="White" WidthRequest="150" HorizontalOptions="Start" Clicked="OnSaveMonthlyCapClicked"/>
                         </VerticalStackLayout>
                     </Grid>
                 </Frame>

@@ -1,15 +1,28 @@
 namespace OtusFinance.Pages;
-
+using OtusFinance;
 public partial class AccountSettings : ContentPage
 {
-	public AccountSettings()
+    private LocalDB _db = new LocalDB();
+    public int? MonthlyCap { get; set; }
+    public AccountSettings()
 	{
 		InitializeComponent();
+        this.BindingContext = this;
 
     }
     async void OnDashboardClicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("//DashboardPage");
+    }
+
+    private async void OnSaveMonthlyCapClicked(object sender, EventArgs e)
+    {
+        var username = UserData.Username;  // Ensure UserData is correctly defined and accessible
+        bool updated = await _db.UpdateMonthlyCapByUsernameAsync(username, MonthlyCap);
+        if (updated)
+            await DisplayAlert("Success", "Monthly cap updated successfully.", "OK");
+        else
+            await DisplayAlert("Error", "Failed to update monthly cap.", "OK");
     }
 
     async void OnReportsClicked(object sender, EventArgs e)
