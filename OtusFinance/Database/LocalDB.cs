@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-
 namespace OtusFinance
 {
     public class LocalDB
@@ -68,6 +67,24 @@ namespace OtusFinance
         public async Task<List<Transactions>> GetTransactionsByUserAsync(string username)
         {
             return await _connection.Table<Transactions>().Where(t => t.Username == username).ToListAsync();
+        }
+        public async Task<List<Transactions>>  GetTransactionsByUserAndCategory(string username, string category)
+        {
+
+            return await _connection.Table<Transactions>().Where(t=> t.Username ==username &&  t.Category == category).ToListAsync();
+        }
+
+        public async Task<Dictionary<string, decimal>> GetTotalTransactionsByUserAndCategory(string username)
+        {
+            var transactions = await _connection.Table<Transactions>()
+                .Where(t => t.Username == username)
+                .ToListAsync();
+
+            var totalsByCategory = transactions
+                .GroupBy(t => t.Type)
+                .ToDictionary(group => group.Key, group => group.Sum(t => t.Amount));
+
+            return totalsByCategory;
         }
 
         public async Task<int> UpdateTransactionAsync(Transactions transaction)

@@ -1,6 +1,8 @@
 using Microcharts;
 using SkiaSharp;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace OtusFinance.Pages
 {
@@ -9,27 +11,57 @@ namespace OtusFinance.Pages
         public OverviewPage()
         {
             InitializeComponent();
-            LoadChartData();
+            
         }
 
-        private void LoadChartData()
+        protected override async void OnAppearing()
         {
-            var entries = new List<ChartEntry>
-            {
-                new ChartEntry(95) { Label = "GrubHub", ValueLabel = "95", Color = SKColor.Parse("#77A1D3") },
-                new ChartEntry(225) { Label = "Gas", ValueLabel = "225", Color = SKColor.Parse("#79D2DE") },
-                new ChartEntry(245) { Label = "Internet", ValueLabel = "245", Color = SKColor.Parse("#EDE574") },
-                new ChartEntry(180) { Label = "Miscellaneous", ValueLabel = "180", Color = SKColor.Parse("#E38690") }
-            };
-
+            base.OnAppearing();
+            await LoadChartData(); 
+        }
+        private async Task LoadChartData()
+        {
+            string username = UserData.Username; 
             
+            var totalsByCategory = await new LocalDB().GetTotalTransactionsByUserAndCategory(username);
+            foreach (var total in totalsByCategory)
+            {
+                Debug.WriteLine($"{total.Key}: ${total.Value}");
+            }
+
+
+            var entries = new List<ChartEntry>();
+
+            foreach (var total in totalsByCategory)
+            {
+                entries.Add(new ChartEntry((float)total.Value)
+                {
+                    Label = total.Key,
+                    ValueLabel = total.Value.ToString("N0"), // Format as number with commas
+                    Color = GetColorForCategory(total.Key) // use defined colors
+                });
+            }
+
             PieChartView.Chart = new DonutChart
             {
                 Entries = entries,
-                HoleRadius = 0.5f  
+                HoleRadius = 0.5f
             };
 
             UpdateTopSpendingCategories(entries);
+        }
+
+        private SKColor GetColorForCategory(string category)
+        {
+            switch (category)
+            {
+                case "Food and Drinks": return SKColor.Parse("#77A1D3");
+                case "Travel": return SKColor.Parse("#79D2DE");
+                case "Income": return SKColor.Parse("#EDE574");
+                case "Housing and Utilities": return SKColor.Parse("#EDE574");
+                case "Other Expenses": return SKColor.Parse("#E38690");
+                default: return SKColor.Parse("#CCCCCC"); // Default color for undefined categories
+            }
         }
 
         private void UpdateTopSpendingCategories(IEnumerable<ChartEntry> entries)
@@ -38,9 +70,9 @@ namespace OtusFinance.Pages
             TopCategory.Text = topCategory != null ? $"{topCategory.Label}: ${topCategory.Value}" : "Data not available";
         }
 
-        async void OnDashboardClicked(object sender, EventArgs e)
+        async void OnSettingsClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//DashboardPage");
+            await Shell.Current.GoToAsync("//AccountSettings");
         }
 
         async void OnReportsClicked(object sender, EventArgs e)
@@ -49,9 +81,9 @@ namespace OtusFinance.Pages
 
         }
 
-        async void OnSettingsClicked(object sender, EventArgs e)
+        async void OnDashboardClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//AccountSettings");
+            await Shell.Current.GoToAsync("//DashboardPage");
         }
 
     }
